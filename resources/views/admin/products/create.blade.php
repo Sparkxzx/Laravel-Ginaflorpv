@@ -21,15 +21,15 @@
                     <div class="tile">
                         <form action="{{ route('admin.products.store') }}" method="POST" role="form">
                             @csrf
-                            <h3 class="tile-title">Product Information</h3>
+                            <h3 class="tile-title">Información del producto</h3>
                             <hr>
                             <div class="tile-body">
                                 <div class="form-group">
-                                    <label class="control-label" for="name">Name</label>
+                                    <label class="control-label" for="name">Nombre</label>
                                     <input
                                         class="form-control @error('name') is-invalid @enderror"
                                         type="text"
-                                        placeholder="Enter attribute name"
+                                        placeholder="Ingresar el nombre del producto"
                                         id="name"
                                         name="name"
                                         value="{{ old('name') }}"
@@ -41,11 +41,11 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label class="control-label" for="sku">SKU</label>
+                                            <label class="control-label" for="sku">Número de serie</label>
                                             <input
                                                 class="form-control @error('sku') is-invalid @enderror"
                                                 type="text"
-                                                placeholder="Enter product sku"
+                                                placeholder="Ingresa un número de serie valido"
                                                 id="sku"
                                                 name="sku"
                                                 value="{{ old('sku') }}"
@@ -59,7 +59,7 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="form-group">
-                                            <label class="control-label" for="categories">Categories</label>
+                                            <label class="control-label" for="categories">Categorías</label>
                                             <select name="categories[]" id="categories" class="form-control" multiple>
                                                 @foreach($categories as $category)
                                                     <option value="{{ $category->id }}">{{ $category->name }}</option>
@@ -71,7 +71,7 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label class="control-label" for="price">Price</label>
+                                            <label class="control-label" for="price">Precio</label>
                                             <input
                                                 class="form-control @error('price') is-invalid @enderror"
                                                 type="text"
@@ -87,11 +87,11 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label class="control-label" for="special_price">Special Price</label>
+                                            <label class="control-label" for="special_price">Precio especial</label>
                                             <input
                                                 class="form-control"
                                                 type="text"
-                                                placeholder="Enter product special price"
+                                                placeholder="Ingresa el precio especial(opciónal)"
                                                 id="special_price"
                                                 name="special_price"
                                                 value="{{ old('special_price') }}"
@@ -102,11 +102,11 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label class="control-label" for="quantity">Quantity</label>
+                                            <label class="control-label" for="quantity">Cantidad</label>
                                             <input
                                                 class="form-control @error('quantity') is-invalid @enderror"
                                                 type="number"
-                                                placeholder="Enter product quantity"
+                                                placeholder="Ingresa la cantidad del producto"
                                                 id="quantity"
                                                 name="quantity"
                                                 value="{{ old('quantity') }}"
@@ -118,11 +118,11 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label class="control-label" for="weight">Weight</label>
+                                            <label class="control-label" for="weight">Tamaño</label>
                                             <input
                                                 class="form-control"
                                                 type="text"
-                                                placeholder="Enter product weight"
+                                                placeholder="Ingresa la cantidad del producto"
                                                 id="weight"
                                                 name="weight"
                                                 value="{{ old('weight') }}"
@@ -131,7 +131,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label" for="description">Description</label>
+                                    <label class="control-label" for="description">Descripción</label>
                                     <textarea name="description" id="description" rows="8" class="form-control"></textarea>
                                 </div>
                                 <div class="form-group">
@@ -141,7 +141,7 @@
                                                    type="checkbox"
                                                    id="status"
                                                    name="status"
-                                                />Status
+                                                />Estado
                                         </label>
                                     </div>
                                 </div>
@@ -152,7 +152,7 @@
                                                    type="checkbox"
                                                    id="featured"
                                                    name="featured"
-                                                />Featured
+                                                />Destacado
                                         </label>
                                     </div>
                                 </div>
@@ -160,8 +160,8 @@
                             <div class="tile-footer">
                                 <div class="row d-print-none mt-2">
                                     <div class="col-12 text-right">
-                                        <button class="btn btn-success" type="submit"><i class="fa fa-fw fa-lg fa-check-circle"></i>Save Product</button>
-                                        <a class="btn btn-danger" href="{{ route('admin.products.index') }}"><i class="fa fa-fw fa-lg fa-arrow-left"></i>Go Back</a>
+                                        <button class="btn btn-success" type="submit"><i class="fa fa-fw fa-lg fa-check-circle"></i>Guardar producto</button>
+                                        <a class="btn btn-danger" href="{{ route('admin.products.index') }}"><i class="fa fa-fw fa-lg fa-arrow-left"></i>Volver</a>
                                     </div>
                                 </div>
                             </div>

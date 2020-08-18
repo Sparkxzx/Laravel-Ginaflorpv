@@ -41,3 +41,12 @@ Route::group(['middleware' => ['auth']], function () {
 
 Route::get('checkout/payment/complete', 'Site\CheckoutController@complete')->name('checkout.payment.complete');
 Route::get('account/orders', 'Site\AccountController@getOrders')->name('account.orders');
+
+
+Route::get('contacto/formulario', 'ContactController@formulario')->name('formulario');
+Route::resource('admin/contacto', 'ContactController')->names('admin.contacto');
+
+
+Route::get('usuario/terminos', 'ContactController@terminos')->name('terminos');
+Route::get('usuario/nosotros', 'ContactController@nosotros')->name('nosotros');
+Route::get('usuario/negocio', 'ContactController@negocio')->name('negocio');

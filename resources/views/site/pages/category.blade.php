@@ -14,7 +14,7 @@
                     <div class="col-md-4">
                         <figure class="card card-product">
                             @if ($product->images->count() > 0)
-                                <div class="img-wrap padding-y"><img src="{{ asset('storage/'.$product->images->first()->full) }}" alt=""></div>
+                                <div class="img-wrap padding-y"><img src="{{ asset($product->images->first()->full) }}" alt=""></div>
                             @else
                                 <div class="img-wrap padding-y"><img src="https://via.placeholder.com/176" alt=""></div>
                             @endif
@@ -22,7 +22,7 @@
                                 <h4 class="title"><a href="{{ route('product.show', $product->slug) }}">{{ $product->name }}</a></h4>
                             </figcaption>
                             <div class="bottom-wrap">
-                                <a href="" class="btn btn-sm btn-success float-right"><i class="fa fa-cart-arrow-down"></i> Buy Now</a>
+                                <a href="{{ route('product.show', $product->slug) }}" class="btn btn-sm btn-success float-right"><i class="fa fa-cart-arrow-down"></i> Comprar ahora</a>
                                 @if ($product->sale_price != 0)
                                     <div class="price-wrap h5">
                                         <span class="price"> {{ config('settings.currency_symbol').$product->sale_price }} </span>
@@ -37,7 +37,7 @@
                         </figure>
                     </div>
                 @empty
-                    <p>No Products found in {{ $category->name }}.</p>
+                    <p>No hay productos encontrados {{ $category->name }}.</p>
                 @endforelse
             </div>
         </div>

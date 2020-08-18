@@ -3,7 +3,7 @@
 @section('content')
     <section class="section-pagetop bg-dark">
         <div class="container clearfix">
-            <h2 class="title-page">My Account - Orders</h2>
+            <h2 class="title-page">Mis ordenes</h2>
         </div>
     </section>
     <section class="section-content bg padding-y border-top">
@@ -15,12 +15,12 @@
                     <table class="table table-hover">
                         <thead>
                             <tr>
-                                <th scope="col">Order No.</th>
-                                <th scope="col">First Name</th>
-                                <th scope="col">Last Name</th>
-                                <th scope="col">Order Amount</th>
-                                <th scope="col">Qty.</th>
-                                <th scope="col">Status</th>
+                                <th scope="col">Orden No.</th>
+                                <th scope="col">Nombre(s)</th>
+                                <th scope="col">Apellidos</th>
+                                <th scope="col">Págo</th>
+                                <th scope="col">Cantidad.</th>
+                                <th scope="col">Estado</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -35,7 +35,7 @@
                                 </tr>
                             @empty
                                 <div class="col-sm-12">
-                                    <p class="alert alert-warning">No orders to display.</p>
+                                    <p class="alert alert-warning">No hay ordenes para mostrar.</p>
                                 </div>
                             @endforelse
                         </tbody>

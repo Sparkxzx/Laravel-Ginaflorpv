@@ -5,10 +5,10 @@
         <hr>
         <div class="tile-body">
             <div class="form-group">
-                <label class="control-label" for="stripe_payment_method">Stripe Payment Method</label>
+                <label class="control-label" for="stripe_payment_method">Metodo de págo con stripe</label>
                 <select name="stripe_payment_method" id="stripe_payment_method" class="form-control">
-                    <option value="1" {{ (config('settings.stripe_payment_method')) == 1 ? 'selected' : '' }}>Enabled</option>
-                    <option value="0" {{ (config('settings.stripe_payment_method')) == 0 ? 'selected' : '' }}>Disabled</option>
+                    <option value="1" {{ (config('settings.stripe_payment_method')) == 1 ? 'selected' : '' }}>Activado</option>
+                    <option value="0" {{ (config('settings.stripe_payment_method')) == 0 ? 'selected' : '' }}>Desactivado</option>
                 </select>
             </div>
             <div class="form-group">
@@ -16,7 +16,7 @@
                 <input
                     class="form-control"
                     type="text"
-                    placeholder="Enter stripe key"
+                    placeholder="Inngresa stripe key"
                     id="stripe_key"
                     name="stripe_key"
                     value="{{ config('settings.stripe_key') }}"
@@ -27,7 +27,7 @@
                 <input
                     class="form-control"
                     type="text"
-                    placeholder="Enter stripe secret key"
+                    placeholder="Ingresa stripe secret key"
                     id="stripe_secret_key"
                     name="stripe_secret_key"
                     value="{{ config('settings.stripe_secret_key') }}"
@@ -35,10 +35,10 @@
             </div>
             <hr>
             <div class="form-group pt-2">
-                <label class="control-label" for="paypal_payment_method">PayPal Payment Method</label>
+                <label class="control-label" for="paypal_payment_method">Metodo de págo con PayPal</label>
                 <select name="paypal_payment_method" id="paypal_payment_method" class="form-control">
-                    <option value="1" {{ (config('settings.paypal_payment_method')) == 1 ? 'selected' : '' }}>Enabled</option>
-                    <option value="0" {{ (config('settings.paypal_payment_method')) == 0 ? 'selected' : '' }}>Disabled</option>
+                    <option value="1" {{ (config('settings.paypal_payment_method')) == 1 ? 'selected' : '' }}>Activado</option>
+                    <option value="0" {{ (config('settings.paypal_payment_method')) == 0 ? 'selected' : '' }}>Desactivado</option>
                 </select>
             </div>
             <div class="form-group">
@@ -46,7 +46,7 @@
                 <input
                     class="form-control"
                     type="text"
-                    placeholder="Enter paypal client Id"
+                    placeholder="Ingresa el client Id"
                     id="paypal_client_id"
                     name="paypal_client_id"
                     value="{{ config('settings.paypal_client_id') }}"
@@ -57,7 +57,7 @@
                 <input
                     class="form-control"
                     type="text"
-                    placeholder="Enter paypal secret id"
+                    placeholder="Ingresa el paypal secret id"
                     id="paypal_secret_id"
                     name="paypal_secret_id"
                     value="{{ config('settings.paypal_secret_id') }}"

@@ -1,10 +1,10 @@
 @extends('admin.app')
-@section('title') Categorías @endsection
+@section('title') {{ $pageTitle }} @endsection
 @section('content')
     <div class="app-title">
         <div>
-            <h1><i class="fa fa-tags"></i> Categorías </h1>
-            <p>Lista de Categorías</p>
+            <h1><i class="fa fa-tags"></i> {{ $pageTitle }} </h1>
+            <p>{{ $subTitle }}</p>
         </div>
         <a href="{{ route('admin.categories.create') }}" class="btn btn-primary pull-right">Agregar Categoria</a>
     </div>
@@ -17,12 +17,11 @@
                         <thead>
                             <tr>
                                 <th> # </th>
-                                <th> Name </th>
+                                <th> Nombre </th>
                                 <th> Slug </th>
-                                <th class="text-center"> Parent </th>
-                                <th class="text-center"> Featured </th>
-                                <th class="text-center"> Menu </th>
-                                <th class="text-center"> Order </th>
+                                <th class="text-center"> Categoría enparentada </th>
+                                <th class="text-center"> Destacado </th>
+                                <th class="text-center"> Mostrar en el menú </th>
                                 <th style="width:100px; min-width:100px;" class="text-center text-danger"><i class="fa fa-bolt"> </i></th>
                             </tr>
                         </thead>
@@ -47,9 +46,6 @@
                                             @else
                                                 <span class="badge badge-danger">No</span>
                                             @endif
-                                        </td>
-                                        <td class="text-center">
-                                            {{ $category->order }}
                                         </td>
                                         <td class="text-center">
                                             <div class="btn-group" role="group" aria-label="Second group">

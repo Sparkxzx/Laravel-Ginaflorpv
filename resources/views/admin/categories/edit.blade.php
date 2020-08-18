@@ -15,19 +15,19 @@
                     @csrf
                     <div class="tile-body">
                         <div class="form-group">
-                            <label class="control-label" for="name">Name <span class="m-l-5 text-danger"> *</span></label>
+                            <label class="control-label" for="name">Nombre <span class="m-l-5 text-danger"> *</span></label>
                             <input class="form-control @error('name') is-invalid @enderror" type="text" name="name" id="name" value="{{ old('name', $targetCategory->name) }}"/>
                             <input type="hidden" name="id" value="{{ $targetCategory->id }}">
                             @error('name') {{ $message }} @enderror
                         </div>
                         <div class="form-group">
-                            <label class="control-label" for="description">Description</label>
+                            <label class="control-label" for="description">Descripción</label>
                             <textarea class="form-control" rows="4" name="description" id="description">{{ old('description', $targetCategory->description) }}</textarea>
                         </div>
                         <div class="form-group">
-                            <label for="parent">Parent Category <span class="m-l-5 text-danger"> *</span></label>
+                            <label for="parent">Categoría enparentada <span class="m-l-5 text-danger"> *</span></label>
                             <select id=parent class="form-control custom-select mt-15 @error('parent_id') is-invalid @enderror" name="parent_id">
-                                <option value="0">Select a parent category</option>
+                                <option value="0">Selecciona una categoría enparentada</option>
                                 @foreach($categories as $key => $category)
                                     @if ($targetCategory->parent_id == $key)
                                         <option value="{{ $key }}" selected> {{ $category }} </option>
@@ -43,7 +43,7 @@
                                 <label class="form-check-label">
                                     <input class="form-check-input" type="checkbox" id="featured" name="featured"
                                     {{ $targetCategory->featured == 1 ? 'checked' : '' }}
-                                    />Featured Category
+                                    />Categoría destacada
                                 </label>
                             </div>
                         </div>
@@ -52,15 +52,15 @@
                                 <label class="form-check-label">
                                     <input class="form-check-input" type="checkbox" id="menu" name="menu"
                                     {{ $targetCategory->menu == 1 ? 'checked' : '' }}
-                                    />Show in Menu
+                                    />Mostrar en el menú
                                 </label>
                             </div>
                         </div>
                     </div>
                     <div class="tile-footer">
-                        <button class="btn btn-primary" type="submit"><i class="fa fa-fw fa-lg fa-check-circle"></i>Update Category</button>
+                        <button class="btn btn-primary" type="submit"><i class="fa fa-fw fa-lg fa-check-circle"></i>Actualizar categoría</button>
                         &nbsp;&nbsp;&nbsp;
-                        <a class="btn btn-secondary" href="{{ route('admin.categories.index') }}"><i class="fa fa-fw fa-lg fa-times-circle"></i>Cancel</a>
+                        <a class="btn btn-secondary" href="{{ route('admin.categories.index') }}"><i class="fa fa-fw fa-lg fa-times-circle"></i>Cancelar</a>
                     </div>
                 </form>
             </div>

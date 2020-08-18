@@ -23,7 +23,7 @@ class PayPalService
     public function __construct()
     {
         if (config('settings.paypal_client_id') == '' || config('settings.paypal_secret_id') == '') {
-            return redirect()->back()->with('error', 'No PayPal settings found.');
+            return redirect()->back()->with('error', 'No hay opciones de paypal.');
         }
 
         $this->payPal = new ApiContext(
@@ -43,10 +43,6 @@ class PayPalService
 
     public function processPayment($order)
     {
-        // Add shipping amount if you want to charge for shipping
-        $shipping = sprintf('%0.2f', 0);
-        // Add any tax amount if you want to apply any tax rule
-        $tax = sprintf('%0.2f', 0);
 
         // Create a new instance of Payer class
         $payer = new Payer();
@@ -60,25 +56,18 @@ class PayPalService
             $orderItems[$item->id]->setName($item->product->name)
                 ->setCurrency(config('settings.currency_code'))
                 ->setQuantity($item->quantity)
-                ->setPrice(sprintf('%0.2f', $item->price));
+                ->setPrice(sprintf($item->price));
 
-            array_push($items, $orderItems[$item->id]);
+            Array($items, $orderItems[$item->id]);
         }
 
         $itemList = new ItemList();
         $itemList->setItems($items);
 
-        // Setting Shipping Details
-        $details = new Details();
-        $details->setShipping($shipping)
-                ->setTax($tax)
-                ->setSubtotal(sprintf('%0.2f', $order->grand_total));
-
         // Create chargeable amount
         $amount = new Amount();
         $amount->setCurrency(config('settings.currency_code'))
-                ->setTotal(sprintf('%0.2f', $order->grand_total))
-                ->setDetails($details);
+                ->setTotal(sprintf($order->grand_total));
 
         // Creating a transaction
         $transaction = new Transaction();

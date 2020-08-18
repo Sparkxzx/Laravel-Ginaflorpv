@@ -15,8 +15,8 @@ class Product extends Model
      * @var array
      */
     protected $fillable = [
-        'name', 'slug', 'description', 'quantity',
-        'weight', 'price', 'sale_price', 'status', 'featured',
+        'sku', 'name', 'slug', 'description', 'quantity',
+        'weight', 'price', 'sale_price', 'status', 'featured', 'image_url',
     ];
 
     /**
@@ -45,20 +45,16 @@ class Product extends Model
     {
         return $this->hasMany(ProductImage::class);
     }
-
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
-    public function attributes()
-    {
-     return $this->hasMany(ProductAttribute::class);
-    }
-
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
     public function categories()
     {
         return $this->belongsToMany(Category::class, 'product_categories', 'product_id', 'category_id');
+    }
+
+    public function getImageAttribute()
+    {
+       return $this->image_url;
     }
 }

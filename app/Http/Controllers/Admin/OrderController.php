@@ -15,7 +15,7 @@ class OrderController extends BaseController
     public function index()
 {
     $orders = $this->orderRepository->listOrders();
-    $this->setPageTitle('Orders', 'List of all orders');
+    $this->setPageTitle('Órdenes', 'Lista de órdenes');
     return view('admin.orders.index', compact('orders'));
 }
 
@@ -23,7 +23,7 @@ public function show($orderNumber)
 {
     $order = $this->orderRepository->findOrderByNumber($orderNumber);
 
-    $this->setPageTitle('Order Details', $orderNumber);
+    $this->setPageTitle('detalle de orden', $orderNumber);
     return view('admin.orders.show', compact('order'));
 }
 }

@@ -16,22 +16,22 @@
                             <h2 class="page-header"><i class="fa fa-globe"></i> {{ $order->order_number }}</h2>
                         </div>
                         <div class="col-6">
-                            <h5 class="text-right">Date: {{ $order->created_at->toFormattedDateString() }}</h5>
+                            <h5 class="text-right">Fecha: {{ $order->created_at->toFormattedDateString() }}</h5>
                         </div>
                     </div>
                     <div class="row invoice-info">
-                        <div class="col-4">Placed By
-                            <address><strong>{{ $order->user->fullName }}</strong><br>Email: {{ $order->user->email }}</address>
+                        <div class="col-4">Hecha por
+                            <address><strong>{{ $order->user->fullName }}</strong><br>Correo eléctronico: {{ $order->user->email }}</address>
                         </div>
-                        <div class="col-4">Ship To
+                        <div class="col-4">Enviar a
                             <address><strong>{{ $order->first_name }} {{ $order->last_name }}</strong><br>{{ $order->address }}<br>{{ $order->city }}, {{ $order->country }} {{ $order->post_code }}<br>{{ $order->phone_number }}<br></address>
                         </div>
                         <div class="col-4">
-                            <b>Order ID:</b> {{ $order->order_number }}<br>
-                            <b>Amount:</b> {{ config('settings.currency_symbol') }}{{ round($order->grand_total, 2) }}<br>
-                            <b>Payment Method:</b> {{ $order->payment_method }}<br>
-                            <b>Payment Status:</b> {{ $order->payment_status == 1 ? 'Completed' : 'Not Completed' }}<br>
-                            <b>Order Status:</b> {{ $order->status }}<br>
+                            <b>#:</b> {{ $order->order_number }}<br>
+                            <b>Págo:</b> {{ config('settings.currency_symbol') }}{{ round($order->grand_total, 2) }}<br>
+                            <b>Metodo de págo:</b> {{ $order->payment_method }}<br>
+                            <b>Estado del Págo:</b> {{ $order->payment_status == 1 ? 'Completed' : 'Not Completed' }}<br>
+                            <b>Órden estatus:</b> {{ $order->status }}<br>
                         </div>
                     </div>
                     <div class="row">
@@ -39,10 +39,10 @@
                             <table class="table table-striped">
                                 <thead>
                                 <tr>
-                                    <th>Qty</th>
-                                    <th>Product</th>
-                                    <th>SKU #</th>
-                                    <th>Qty</th>
+                                    <th>#</th>
+                                    <th>Producto</th>
+                                    <th>Número de serie #</th>
+                                    <th>Cantidad</th>
                                     <th>Subtotal</th>
                                 </tr>
                                 </thead>

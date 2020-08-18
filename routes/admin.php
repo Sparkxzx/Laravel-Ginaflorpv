@@ -39,21 +39,6 @@ Route::group(['prefix'  =>  'admin'], function () {
 
         });
 
-        Route::group(['prefix'  =>   'attributes'], function() {
-
-            Route::get('/', 'Admin\AttributeController@index')->name('admin.attributes.index');
-            Route::get('/create', 'Admin\AttributeController@create')->name('admin.attributes.create');
-            Route::post('/store', 'Admin\AttributeController@store')->name('admin.attributes.store');
-            Route::get('/{id}/edit', 'Admin\AttributeController@edit')->name('admin.attributes.edit');
-            Route::post('/update', 'Admin\AttributeController@update')->name('admin.attributes.update');
-            Route::get('/{id}/delete', 'Admin\AttributeController@delete')->name('admin.attributes.delete');
-
-            Route::post('/get-values', 'Admin\AttributeValueController@getValues');
-            Route::post('/add-values', 'Admin\AttributeValueController@addValues');
-            Route::post('/update-values', 'Admin\AttributeValueController@updateValues');
-            Route::post('/delete-values', 'Admin\AttributeValueController@deleteValues');
-        });
-
         Route::group(['prefix' => 'products'], function () {
 
            Route::get('/', 'Admin\ProductController@index')->name('admin.products.index');
@@ -61,16 +46,10 @@ Route::group(['prefix'  =>  'admin'], function () {
            Route::post('/store', 'Admin\ProductController@store')->name('admin.products.store');
            Route::get('/edit/{id}', 'Admin\ProductController@edit')->name('admin.products.edit');
            Route::post('/update', 'Admin\ProductController@update')->name('admin.products.update');
+           Route::get('/{id}/delete', 'Admin\ProductController@delete')->name('admin.products.delete');
 
            Route::post('images/upload', 'Admin\ProductImageController@upload')->name('admin.products.images.upload');
            Route::get('images/{id}/delete', 'Admin\ProductImageController@delete')->name('admin.products.images.delete');
-
-           Route::get('attributes/load', 'Admin\ProductAttributeController@loadAttributes');
-           Route::post('attributes', 'Admin\ProductAttributeController@productAttributes');
-           Route::post('attributes/values', 'Admin\ProductAttributeController@loadValues');
-           Route::post('attributes/add', 'Admin\ProductAttributeController@addAttribute');
-           Route::post('attributes/delete', 'Admin\ProductAttributeController@deleteAttribute');
-
         });
 
         Route::group(['prefix' => 'orders'], function () {

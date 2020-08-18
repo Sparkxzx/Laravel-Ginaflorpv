@@ -39,3 +39,4 @@ trait UploadAble
         Storage::disk($disk)->delete($path);
     }
 }
+

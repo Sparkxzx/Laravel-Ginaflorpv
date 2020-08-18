@@ -33,7 +33,7 @@ class CategoryController extends BaseController
     {
         $categories = $this->categoryRepository->listCategories();
 
-        $this->setPageTitle('Categories', 'List of all categories');
+        $this->setPageTitle('Categorías', 'Lista de categorías');
         return view('admin.categories.index', compact('categories'));
     }
 
@@ -44,7 +44,7 @@ class CategoryController extends BaseController
     {
         $categories = $this->categoryRepository->treeList();
 
-        $this->setPageTitle('Categories', 'Create Category');
+        $this->setPageTitle('Categorías', 'Crear Categoría');
         return view('admin.categories.create', compact('categories'));
     }
 
@@ -79,7 +79,7 @@ class CategoryController extends BaseController
         $targetCategory = $this->categoryRepository->findCategoryById($id);
         $categories = $this->categoryRepository->treeList();
 
-        $this->setPageTitle('Categories', 'Edit Category : '.$targetCategory->name);
+        $this->setPageTitle('Categorías', 'editar categoría : '.$targetCategory->name);
         return view('admin.categories.edit', compact('categories', 'targetCategory'));
     }
     /**

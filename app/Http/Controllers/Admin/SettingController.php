@@ -17,7 +17,7 @@ class SettingController extends BaseController
      */
     public function index()
     {
-        $this->setPageTitle('Settings', 'Manage Settings');
+        $this->setPageTitle('Opciones', 'Opciones de administrador');
         return view('admin.settings.index');
     }
 
@@ -52,6 +52,6 @@ class SettingController extends BaseController
             Setting::set($key, $value);
         }
     }
-    return $this->responseRedirectBack('Settings updated successfully.', 'success');
+    return $this->responseRedirectBack('Opciones actualizadas correctamente.', 'success');
 }
 }

@@ -94,9 +94,9 @@ class ProductRepository extends BaseRepository implements ProductContract
         $product = $this->findProductById($params['product_id']);
 
         $collection = collect($params)->except('_token');
-
         $featured = $collection->has('featured') ? 1 : 0;
         $status = $collection->has('status') ? 1 : 0;
+
 
         $merge = $collection->merge(compact('status', 'featured'));
 

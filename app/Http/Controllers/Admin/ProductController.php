@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
-use App\Contracts\BrandContract;
 use App\Contracts\CategoryContract;
 use App\Contracts\ProductContract;
 use App\Http\Controllers\BaseController;
@@ -17,32 +16,32 @@ class ProductController extends BaseController
     protected $productRepository;
 
     public function __construct(
+
         CategoryContract $categoryRepository,
         ProductContract $productRepository
     )
     {
+
         $this->categoryRepository = $categoryRepository;
         $this->productRepository = $productRepository;
     }
-
-    // Other functions here
 
     public function index()
     {
         $products = $this->productRepository->listProducts();
 
-        $this->setPageTitle('Products', 'Products List');
+        $this->setPageTitle('Productos', 'Lista de productos');
         return view('admin.products.index', compact('products'));
     }
 
     public function create()
     {
-
         $categories = $this->categoryRepository->listCategories('name', 'asc');
 
         $this->setPageTitle('Products', 'Create Product');
         return view('admin.products.create', compact('categories'));
     }
+
     public function store(StoreProductFormRequest $request)
     {
         $params = $request->except('_token');
@@ -50,9 +49,9 @@ class ProductController extends BaseController
         $product = $this->productRepository->createProduct($params);
 
         if (!$product) {
-            return $this->responseRedirectBack('Error occurred while creating product.', 'error', true, true);
+            return $this->responseRedirectBack('Ha ocurrido un error al crear un producto.', 'error', true, true);
         }
-        return $this->responseRedirect('admin.products.index', 'Product added successfully' ,'success',false, false);
+        return $this->responseRedirect('admin.products.index', 'Producto añadido correctamente' ,'success',false, false);
     }
 
     public function edit($id)
@@ -71,8 +70,18 @@ class ProductController extends BaseController
         $product = $this->productRepository->updateProduct($params);
 
         if (!$product) {
-            return $this->responseRedirectBack('Error occurred while updating product.', 'error', true, true);
+            return $this->responseRedirectBack('Un error ha ocurrido al editar un producto.', 'error', true, true);
         }
-        return $this->responseRedirect('admin.products.index', 'Product updated successfully' ,'success',false, false);
+        return $this->responseRedirect('admin.products.index', 'Producto actualizado correctamente' ,'success',false, false);
+    }
+
+    public function delete($id)
+    {
+        $product = $this->productRepository->deleteProduct($id);
+
+        if (!$product) {
+            return $this->responseRedirectBack('Un error ha ocurrido al momento de Eliminar.', 'error', true, true);
+        }
+        return $this->responseRedirect('admin.products.index', 'producto eliminada exitosamente' ,'success',false, false);
     }
 }

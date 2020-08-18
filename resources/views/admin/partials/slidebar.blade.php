@@ -4,31 +4,14 @@
         <li>
             <a class="app-menu__item {{ Route::currentRouteName() == 'admin.dashboard' ? 'active' : '' }}" href="{{ route('admin.dashboard') }}">
                 <i class="app-menu__icon fa fa-dashboard"></i>
-                <span class="app-menu__label">Dashboard</span>
+                <span class="app-menu__label">Usuarios</span>
             </a>
         </li>
         <li>
             <a class="app-menu__item {{ Route::currentRouteName() == 'admin.orders.index' ? 'active' : '' }}" href="{{ route('admin.orders.index') }}">
                 <i class="app-menu__icon fa fa-bar-chart"></i>
-                <span class="app-menu__label">Orders</span>
+                <span class="app-menu__label">Órdenes</span>
             </a>
-        </li>
-        <li class="treeview">
-            <a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-users"></i>
-                <span class="app-menu__label">Users</span>
-                <i class="treeview-indicator fa fa-angle-right"></i>
-            </a>
-            <ul class="treeview-menu">
-                <li>
-                    <a class="treeview-item" href="#"><i class="icon fa fa-circle-o"></i> Admin Users</a>
-                </li>
-                <li>
-                    <a class="treeview-item" href="#" target="_blank" rel="noopener noreferrer"><i class="icon fa fa-circle-o"></i> Roles</a>
-                </li>
-                <li>
-                    <a class="treeview-item" href="#"><i class="icon fa fa-circle-o"></i> Permissions</a>
-                </li>
-            </ul>
         </li>
         <li>
             <a class="app-menu__item {{ Route::currentRouteName() == 'admin.settings' ? 'active' : '' }}" href="{{ route('admin.settings') }}">
@@ -43,18 +26,16 @@
                     <span class="app-menu__label">Categorías</span>
                 </a>
             </li>
-
-            <li>
-                <a class="app-menu__item {{ Route::currentRouteName() == 'admin.attributes.index' ? 'active' : '' }}" href="{{ route('admin.attributes.index') }}">
-                    <i class="app-menu__icon fa fa-th"></i>
-                    <span class="app-menu__label">Eventos</span>
-                </a>
-            </li>
             <li>
                 <a class="app-menu__item {{ Route::currentRouteName() == 'admin.products.index' ? 'active' : '' }}" href="{{ route('admin.products.index') }}">
                     <i class="app-menu__icon fa fa-shopping-bag"></i>
                     <span class="app-menu__label">Productos</span>
                 </a>
+                <li>
+                    <a class="app-menu__item {{ Route::currentRouteName() == 'admin.contacto.index' ? 'active' : '' }}" href="{{ route('admin.contacto.index') }}">
+                        <i class="app-menu__icon fa fa-envelope"></i>
+                        <span class="app-menu__label">Contactos</span>
+                    </a>
             </li>
         </li>
     </ul>

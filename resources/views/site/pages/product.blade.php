@@ -17,8 +17,8 @@
                                     @if ($product->images->count() > 0)
                                         <div class="img-big-wrap">
                                             <div class="padding-y">
-                                                <a href="{{ asset('storage/'.$product->images->first()->full) }}" data-fancybox="">
-                                                    <img src="{{ asset('storage/'.$product->images->first()->full) }}" alt="">
+                                                <a href="{{ asset($product->images->first()->full) }}" data-fancybox="">
+                                                    <img src="{{ asset($product->images->first()->full) }}" alt="">
                                                 </a>
                                             </div>
                                         </div>
@@ -33,7 +33,9 @@
                                         <div class="img-small-wrap">
                                             @foreach($product->images as $image)
                                                 <div class="item-gallery">
-                                                    <img src="{{ asset('storage/'.$image->full) }}" alt="">
+                                                <a href="{{ asset($image->full) }}" data-fancybox="">
+                                                    <img src="{{ asset($image->full) }}" alt="">
+                                                </a>
                                                 </div>
                                             @endforeach
                                         </div>
@@ -44,9 +46,9 @@
                                 <article class="p-5">
                                     <h3 class="title mb-3">{{ $product->name }}</h3>
                                     <dl class="row">
-                                        <dt class="col-sm-3">SKU</dt>
+                                        <dt class="col-sm-3">Número de serie</dt>
                                         <dd class="col-sm-9">{{ $product->sku }}</dd>
-                                        <dt class="col-sm-3">Weight</dt>
+                                        <dt class="col-sm-3">Tamaño</dt>
                                         <dd class="col-sm-9">{{ $product->weight }}</dd>
                                     </dl>
                                     <div class="mb-3">
@@ -67,25 +69,6 @@
                                         <div class="row">
                                             <div class="col-sm-12">
                                                 <dl class="dlist-inline">
-                                                    @foreach($attributes as $attribute)
-                                                        @php $attributeCheck = in_array($attribute->id, $product->attributes->pluck('attribute_id')->toArray()) @endphp
-                                                        @if ($attributeCheck)
-                                                            <dt>{{ $attribute->name }}: </dt>
-                                                            <dd>
-                                                                <select class="form-control form-control-sm option" style="width:180px;" name="{{ strtolower($attribute->name ) }}">
-                                                                    <option data-price="0" value="0"> Select a {{ $attribute->name }}</option>
-                                                                    @foreach($product->attributes as $attributeValue)
-                                                                        @if ($attributeValue->attribute_id == $attribute->id)
-                                                                            <option
-                                                                                data-price="{{ $attributeValue->price }}"
-                                                                                value="{{ $attributeValue->value }}"> {{ ucwords($attributeValue->value . ' +'. $attributeValue->price) }}
-                                                                            </option>
-                                                                        @endif
-                                                                    @endforeach
-                                                                </select>
-                                                            </dd>
-                                                        @endif
-                                                    @endforeach
                                                 </dl>
                                             </div>
                                         </div>
@@ -93,7 +76,7 @@
                                         <div class="row">
                                             <div class="col-sm-12">
                                                 <dl class="dlist-inline">
-                                                    <dt>Quantity: </dt>
+                                                    <dt>Cantidad: </dt>
                                                     <dd>
                                                         <input class="form-control" type="number" min="1" value="1" max="{{ $product->quantity }}" name="qty" style="width:70px;">
                                                         <input type="hidden" name="productId" value="{{ $product->id }}">
@@ -103,7 +86,7 @@
                                             </div>
                                         </div>
                                         <hr>
-                                        <button type="submit" class="btn btn-success"><i class="fas fa-shopping-cart"></i> Add To Cart</button>
+                                        <button type="submit" class="btn btn-success"><i class="fas fa-shopping-cart"></i> Añadir al carrito</button>
                                     </form>
                                 </article>
                             </aside>
